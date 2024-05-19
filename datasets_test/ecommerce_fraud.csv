@@ -1,0 +1,21 @@
+Transaction ID,Customer ID,Transaction Amount,Transaction Date,Payment Method,Product Category,Quantity,Customer Age,Customer Location,Device Used,IP Address,Shipping Address,Billing Address,Is Fraudulent,Account Age Days,Transaction Hour
+c12e07a0-8a06-4c0d-b5cc-04f3af688570,8ca9f102-02a4-4207-ab63-484e83a1bdf0,42.32,2024-03-24 23:42:43,PayPal,electronics,1,40,East Jameshaven,desktop,110.87.246.85,"5399 Rachel Stravenue Suite 718
+North Blakeburgh, IL 78600","5399 Rachel Stravenue Suite 718
+North Blakeburgh, IL 78600",0,282,23
+7d187603-7961-4fce-9827-9698e2b6a201,4d158416-caae-4b09-bd5b-15235deb9129,301.34,2024-01-22 00:53:31,credit card,electronics,3,35,Kingstad,tablet,14.73.104.153,"5230 Stephanie Forge
+Collinsbury, PR 81853","5230 Stephanie Forge
+Collinsbury, PR 81853",0,223,0
+f2c14f9d-92df-4aaf-8931-ceaf4e63ed72,ccae47b8-75c7-4f5a-aa9e-957deced2137,340.32,2024-01-22 08:06:03,debit card,toys & games,5,29,North Ryan,desktop,67.58.94.93,"195 Cole Oval
+Port Larry, IA 58422","4772 David Stravenue Apt. 447
+Velasquezside, KS 67650",0,360,8
+e9949bfa-194d-486b-84da-9565fca9e5ce,b04960c0-aeee-4907-b1cd-4819016adcef,95.77,2024-01-16 20:34:53,credit card,electronics,5,45,Kaylaville,mobile,202.122.126.216,"7609 Cynthia Square
+West Brenda, NV 23016","7609 Cynthia Square
+West Brenda, NV 23016",0,325,20
+7362837c-7538-434e-8731-0df713f5f26d,de9d6351-b3a7-4bc7-9a55-8f013eb66928,77.45,2024-01-16 15:47:23,credit card,clothing,5,42,North Edwardborough,desktop,96.77.232.76,"2494 Robert Ramp Suite 313
+Robinsonport, AS 52039","2494 Robert Ramp Suite 313
+Robinsonport, AS 52039",0,116,15
+5da506fe-d4df-474a-b773-146333f06cfe,03033baf-2bcc-4608-b5b8-9c86976f4948,345.27,2024-02-22 13:49:27,PayPal,toys & games,1,9,Johnsonmouth,desktop,158.48.161.135,"PSC 3832, Box 5265
+APO AE 85694","PSC 3832, Box 5265
+APO AE 85694",0,251,13
+47b35c5d-d4c9-4a7d-a354-cd41596abf67,6a5305a3-b47c-4bdb-91d7-3bf126530e01,53.69,2024-03-21 13:42:10,debit card,toys & games,3,41,New Brendamouth,mobile,93.54.173.138,"272 Tammy Isle Apt. 969
+North Michaelmouth, MH 02615","272 Tammy Isle Apt. 969

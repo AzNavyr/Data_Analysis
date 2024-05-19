@@ -1,0 +1,31 @@
+year,month,originName,originTypeName,destinationName,destinationTypeName,gradeName,quantity
+2009,01,Belize,Country,EXXONMOBIL REFINING & SPLY CO / BEAUMONT / TX,Refinery,Light Sour,61
+2009,01,Belize,Country,FLINT HILLS RESOURCES LP / WEST / TX,Refinery,Light Sour,62
+2009,01,Algeria,Country,SHELL OIL PRODUCTS US / ST ROSE / LA,Refinery,Light Sweet,10
+2009,01,Algeria,Country,OIL TANKING PL INC / HOUSTON (GULF) / TX,Refinery,Light Sweet,381
+2009,01,Algeria,Country,UNKNOWN PROCESSOR-TX / UNKNOWN PROCESSOR-TX / TX,Refinery,Light Sweet,851
+2009,01,Algeria,Country,VALERO REFINING CO TEXAS LP / HOUSTON REFINERY / TX,Refinery,Light Sweet,470
+2009,01,Algeria,Country,CHEVRON USA INC / BELLE CHASSE / LA,Refinery,Light Sweet,518
+2009,01,Algeria,Country,PASADENA REFINING SYSTEMS INC / PASADENA / TX,Refinery,Light Sweet,601
+2009,01,Algeria,Country,PHILLIPS 66 / SWEENY / TX,Refinery,Light Sweet,2086
+2009,01,Algeria,Country,MONROE ENERGY LLC / TRAINER / PA,Refinery,Light Sweet,910
+2009,01,Algeria,Country,CITGO REFINING & CHEMICAL INC / CORPUS CHRISTI / TX,Refinery,Light Sweet,1568
+2009,01,Algeria,Country,UNKNOWN PROCESSOR-LA / UNKNOWN PROCESSOR-LA / LA,Refinery,Light Sweet,996
+2009,01,Algeria,Country,PREMCOR REFINING GROUP INC / MEMPHIS / TN,Refinery,Light Sweet,977
+2009,01,Algeria,Country,SHELL CHEMICAL LP / MOBILE / AL,Refinery,Light Sweet,1026
+2009,01,Algeria,Country,TOTAL PETROCHEMICALS USA INC / PORT ARTHUR / TX,Refinery,Light Sweet,741
+2009,01,Australia,Country,VALERO REFINING CO CALIFORNIA / BENICIA / CA,Refinery,Heavy Sweet,585
+2009,01,Australia,Country,UNKNOWN PROCESSOR-LA / UNKNOWN PROCESSOR-LA / LA,Refinery,Light Sweet,647
+2009,01,United Kingdom,Country,TEPPCO TERMINAL & MKTG CO LLC / HOUSTON / TX,Refinery,Light Sweet,471
+2009,01,Vietnam,Country,ISLAND ENERGY SVCS DOWNSTREAM / KAPOLEI / HI,Refinery,Light Sweet,1039
+2009,01,Syria,Country,MARATHON PETROLEUM CO LP / GALVESTON BAY / TX,Refinery,Heavy Sour,81
+2009,01,Chad,Country,SUNOCO INC / EAGLE POINT / NJ,Refinery,Heavy Sweet,122
+2009,01,Chad,Country,EXXONMOBIL REFINING & SPLY CO / BAYTOWN / TX,Refinery,Heavy Sweet,479
+2009,01,Chad,Country,EXXONMOBIL REFINING & SUPPLY / BATON ROUGE REFINERY / LA,Refinery,Heavy Sweet,479
+2009,01,Chad,Country,PHILADELPHIA ENERGY SOLUTIONS / PHILADELPHIA / PA,Refinery,Heavy Sweet,1381
+2009,01,Argentina,Country,BP PRODUCTS NORTH AMERICA / CHERRY POINT REFINERY / WA,Refinery,Heavy Sour,394
+2009,01,Argentina,Country,BP PRODUCTS NORTH AMERICA / CHERRY POINT REFINERY / WA,Refinery,Heavy Sweet,782
+2009,01,Argentina,Country,UNKNOWN PROCESSOR-CA / UNKNOWN PROCESSOR-CA / CA,Refinery,Heavy Sweet,206
+2009,01,Ecuador,Country,EXXONMOBIL REFINING & SPLY CO / BEAUMONT / TX,Refinery,Heavy Sour,359
+2009,01,Ecuador,Country,PAULSBORO REFINING CO LLC / PAULSBORO / NJ,Refinery,Heavy Sour,320
+2009,01,Ecuador,Country,TESORO REFINING & MARKETING / GOLDEN EAGLE / CA,Refinery,Heavy Sour,986

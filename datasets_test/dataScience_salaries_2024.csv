@@ -1,0 +1,21 @@
+work_year,experience_level,employment_type,job_title,salary,salary_currency,salary_in_usd,employee_residence,remote_ratio,company_location,company_size
+2021,MI,FT,Data Scientist,30400000,CLP,40038,CL,100,CL,L
+2021,MI,FT,BI Data Analyst,11000000,HUF,36259,HU,50,US,L
+2020,MI,FT,Data Scientist,11000000,HUF,35735,HU,50,HU,L
+2021,MI,FT,ML Engineer,8500000,JPY,77364,JP,50,JP,S
+2022,SE,FT,Lead Machine Learning Engineer,7500000,INR,95386,IN,50,IN,L
+2021,MI,FT,ML Engineer,7000000,JPY,63711,JP,50,JP,S
+2021,SE,FT,Data Science Manager,7000000,INR,94665,IN,50,IN,L
+2022,EN,FT,Data Scientist,6600000,HUF,17684,HU,100,HU,M
+2022,EX,FT,Head of Machine Learning,6000000,INR,76309,IN,50,IN,L
+2022,EN,FT,Research Engineer,5500000,JPY,41809,JP,50,JP,L
+2023,MI,FT,Head of Data Science,5000000,INR,60805,IN,50,IN,L
+2023,EN,FT,AI Programmer,4950806,INR,60207,IN,0,IN,S
+2021,SE,FT,Machine Learning Engineer,4900000,INR,66265,IN,0,IN,L
+2022,SE,FT,Lead Data Scientist,4460000,INR,56723,IN,0,IN,L
+2020,EN,FT,Data Engineer,4450000,JPY,41689,JP,100,JP,S
+2022,MI,FT,Data Scientist,4200000,INR,53416,IN,100,ID,L
+2023,EN,FT,Applied Machine Learning Scientist,4000000,INR,48644,IN,100,DE,L
+2021,SE,FT,Data Scientist,4000000,INR,54094,IN,100,IN,L
+2021,SE,FT,Data Science Manager,4000000,INR,54094,IN,50,US,L
+2023,SE,FT,Data Science Manager,3600000,INR,43779,IN,100,IN,L
