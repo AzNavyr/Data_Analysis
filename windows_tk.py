@@ -7,22 +7,16 @@
 
 import tkinter as tk
 import ds_salaries as ds
-from PIL import Image, ImageTk
 
-CHOICE = ['View Salary by Job Type',
-          'Top 3 IT specialists by continent',
-          'Top 3 IT specialists by continent',
-          'Exit']
-
-def make_button(win, text, bd=5, bg='#a7dee8', action='green'):
+def make_button(win, text, command, bd=5, bg='#a7dee8', action='green'):
     return tk.Button(win, text=text,
-                      command=ds.avg_salary_by_type,
+                      command=lambda: command(),
                       activebackground=action,
                       font=('Arial', 9, 'bold'),
                       bd=bd,
                       bg=bg)
 
-def main_window(width=897, height=457, title="", lable_text=""):
+def main_window(CHOICE, width=897, height=457, title="", lable_text=""):
     """
     (None) -> None
     """
@@ -31,7 +25,7 @@ def main_window(width=897, height=457, title="", lable_text=""):
     pic = tk.PhotoImage(file="images/icon.png")
     win.iconphoto(False, pic)
     win.geometry(f'{width}x{height}+600+300')
-    win.resizable(False,False)
+    #win.resizable(False,False)
     pic_label = tk.PhotoImage(file="images/DS-image_other.png")
     # widget Labels
     lable_text = tk.Label(win,
@@ -48,29 +42,29 @@ def main_window(width=897, height=457, title="", lable_text=""):
                                              padx=150,
                                              pady=7)
     #widget Buttons
-    btn_1 = make_button(win, CHOICE[0]).grid(row=8,
-                                        column=0,
-                                        stick="wnes",
-                                        padx=25,
-                                        pady=5)
+    btn_1 = make_button(win, CHOICE[0], command=ds.avg_salary_by_type).grid(row=8,
+                                                                            column=0,
+                                                                            stick="wnes",
+                                                                            padx=25,
+                                                                            pady=5)
     
-    btn_2 = make_button(win, CHOICE[1]).grid(row=8,
-                                        column=2,
-                                        stick="wnes",
-                                        padx=25,
-                                        pady=5)
+    btn_2 = make_button(win, CHOICE[1], command=ds.top_it_jobs_by_continent).grid(row=8,
+                                                                                  column=2,
+                                                                                  stick="wnes",
+                                                                                  padx=25,
+                                                                                  pady=5)
     
-    btn_3 = make_button(win, CHOICE[2]).grid(row=8,
-                                            column=3,
-                                            stick="wnes",
-                                            padx=25,
-                                            pady=5)
+    btn_3 = make_button(win, CHOICE[2], command=ds.top_5_by_national_composition).grid(row=8,
+                                                                  column=3,
+                                                                  stick="wnes",
+                                                                  padx=25,
+                                                                  pady=5)
     
-    btn_4 = make_button(win, CHOICE[3], action='red').grid(row=8,
-                                                           column=4,
-                                                           stick="wnes",
-                                                           padx=25,
-                                                           pady=5) 
+    btn_4 = make_button(win, CHOICE[3], command=exit, action='red').grid(row=8,
+                                                                           column=4,
+                                                                           stick="wnes",
+                                                                           padx=25,
+                                                                           pady=5) 
     
     #cal = tk.Entry()
     #cal.grid(row=0, column=0)
@@ -84,4 +78,4 @@ def main_window(width=897, height=457, title="", lable_text=""):
 
 
 if __name__ == "__main__":
-    main_window(title="Select box",lable_text="Data scientice salary")
+    pass

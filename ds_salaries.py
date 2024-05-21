@@ -8,13 +8,25 @@ import pandas as pd
 import easygui as eg
 import chartmaker as cm
 import helpers as h
+import threading
+import windows_tk as wtk 
 
 TEST_DATA = 'datasets_test/dataScience_salaries_2024.csv'
 FULL_DATA = 'datasets_full/dataScience_salaries_2024.csv'
 CHOICE = ['View Salary by Job Type',
           'Top 3 IT specialists by continent',
-          'Plot_3',
+          'Top 5 by national composition',
           'Exit']
+
+def show_message(title, alpha_2):
+    """
+    (str, list) -> None
+    Create a message box
+    """
+    message = {}
+    for indx, val in enumerate(alpha_2[:5]):
+        message[val]=h.get_country(alpha_2[indx])
+    eg.msgbox(msg=message, title=title)
 
 #Show average salary in USD
 def avg_salary_by_type():
@@ -43,7 +55,7 @@ def avg_salary_by_type():
     y_values = employment_types
     #Using my custom function to create a graph
     cm.custom_make_bar(x_labels, y_values,
-                       title="The average salary in USD",
+                       title="Average salary in USD, depending on the type of employment",
                        y_lable="Salary",
                        x_lable="Company size")
     
@@ -108,37 +120,21 @@ def top_it_jobs_by_continent():
     y_values = list(df_new['salary_in_usd'])
     cm.make_bar_horizontal(x_values, y_values,
                            title="Top 3 salaries from the continent and experience",
-                           x_label="Average salary in USD")
+                           x_label="Average salary in USD")  
     
-    """
-    uniq_job_title = list(set(df['job_title']))#List of uniq job_title
-    choices = eg.multchoicebox(msg='Сhoose a specialty',
-                              title='Job titels',
-                              choices=uniq_job_title)
-    currencies = {}
-    uniq_currencies = list(set(df['salary_currency']))#список уникальных валют alpha-3
-    uniq_job_title = list(set(df['job_title']))#список уникальных названий профессий
-    for v in sorted(uniq_currencies):
-        currencies[v] = h.get_currencies(v)
-    continent = h.country_to_continent(countries[choice]) 
-    filter_speciality = df['remote_ratio'] == 100
-    filtred_df = df.loc[filter_speciality]
-    uniq_countries1 = list(set(filtred_df['company_location']))
-    print(continent)
-    print(countries)
-    print(currencies)"""
-  
-    
-def plot_3():
+def top_5_by_national_composition():
     """
     (None) -> None
+    
     """
     df = pd.read_csv(FULL_DATA)#Create data frame
+    #Choiceebox of the type of remote ratio
     choice = eg.choicebox(msg='Сhoose the format of the work',
                           title='The first question',
                           choices=['No remote work',
                                    'Partially remote',
                                    'Fully remote'])
+    #input processing
     if choice == 'No remote work':
         df = df.loc[df['remote_ratio'] == 0]
     elif choice == 'Partially remote':
@@ -146,11 +142,13 @@ def plot_3():
     elif choice == 'Fully remote':
         df = df.loc[df['remote_ratio'] == 100]
     
+    #Choiceebox of the company size
     choice = eg.choicebox(msg='Сhoose the company size',
                           title='The second question',
                           choices=['Large',
                                    'Medium',
                                    'Small'])
+    #input processing
     if choice == 'Large':
         df = df.loc[df['company_size'] == 'L']
     elif choice == 'Medium':
@@ -158,17 +156,36 @@ def plot_3():
     elif choice == 'Small':
         df = df.loc[df['company_size'] == 'S']
         
-    employees_residence = list(set(df['employee_residence']))
-    employees_residence_2 = []
-    for val in sorted(employees_residence):
-        employees_residence_2.append(h.get_country(val))
-    
+    employees_residence = df['employee_residence']#Create Series   
+    for val in employees_residence:
+        #Group by 'employee_residence' and calculate percentage
+        top_5_nation = (df.groupby('employee_residence').size() / len(df)) * 100
+        #sorted result and take top-5
+        top_5_nation = top_5_nation.sort_values(ascending=False)[:5]
+        #Count rest percents
+        others = round(100 - top_5_nation.sum(), 2)
+        #Series to DF with make from Series index name of column DF
+        top_5_nation = top_5_nation.reset_index()
+        #added the remaining percentages to the column 'employee_residence' in DF 
+        top_5_nation.loc[5] = ['Other',others]
+    #create multiflow output   
+    thread1 = threading.Thread(target=show_message,
+                               args=("Decryption of Alphs_2",
+                                     list(top_5_nation['employee_residence'])))
+    thread2 = threading.Thread(target=cm.custom_make_pi,
+                               args=(list(top_5_nation[0]),
+                                     list(top_5_nation['employee_residence'])))
+    thread2.start()
+    thread1.start()
 
 def main():
     """
     (None) -> None
+    Create main menu
     """
     while True:
+        #tkinter main menu
+        #wtk.main_window(CHOICE, title="Select box",lable_text="Data scientice salary")
         pick = eg.indexbox(msg="Data scientice salary",
                            title="Select box",
                            choices=CHOICE,
@@ -178,14 +195,12 @@ def main():
         elif pick == 1:
             top_it_jobs_by_continent()
         elif pick == 2:
-            plot_3()
+            top_5_by_national_composition()
         elif pick == 3:
             eg.msgbox(msg="Leaving Data Analytics...",
                       title="Goodbye",
                       image="images/goodbye.jpg")
             break
         
-        
 if __name__ == "__main__":
-    plot_3()
-    #main()
+    main()

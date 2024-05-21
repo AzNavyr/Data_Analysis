@@ -9,6 +9,7 @@
 # -- imports
 import tempfile
 import os
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -18,12 +19,12 @@ os.environ["MPLCONFIGDIR"] = tempfile.gettempdir()
 
 
 # -- functions
-def custom_make_bar(x_labels, y_values, title="", y_lable="", x_lable=""):
+def custom_make_bar(x_values, y_values, title="", y_lable="", x_lable=""):
     '''
     (list of str, list of num) -> None
     Creates a bar chart from data supplied.
     '''
-    x = np.arange(len(x_labels))  # the label locations
+    x = np.arange(len(x_values))  # the label locations
     width = 0.2  # the width of the bars
     multiplier = 0
 
@@ -34,12 +35,11 @@ def custom_make_bar(x_labels, y_values, title="", y_lable="", x_lable=""):
         rects = ax.bar(x + offset, measurement, width, label=attribute)
         ax.bar_label(rects, padding=3)
         multiplier += 1
-
     # Add some text for labels, title and custom x-axis tick labels, etc.
     ax.set_ylabel(y_lable)
     ax.set_xlabel(x_lable)
     ax.set_title(title)
-    ax.set_xticks(x + width, x_labels)
+    ax.set_xticks(x + width, x_values)
     ax.legend(loc='best', ncols=3)
     plt.show()
     
@@ -48,15 +48,33 @@ def make_bar_horizontal(x_values, y_values, title="", x_label="", y_label=""):
     (list of str, list of num) -> None
     Creates a bar chart from data supplied.
     x_values, y_values, title="", x_label="", y_label=""
-    '''     
+    '''
+    colors = ["C2", "C3", "C4"]
     plt.figure(figsize=(15, 6))
-    plt.barh(x_values, y_values, color='green')
+    plt.barh(x_values, y_values, color=colors, edgecolor = 'black', height = 0.5)
     plt.grid()
     plt.xlabel(x_label, fontsize=10, color='blue')
     plt.ylabel(y_label, fontsize=10, color='blue')
     plt.title(title, fontweight='bold', fontsize=15, color='blue', loc='center')
     plt.show()
 
+def custom_make_pi(values, legend, pctdistance=1.1, labeldistance=1.5, size=1.4, dp=1):
+    '''
+    (list of str, list of num, int, int) -> None
+    Creates a pi chart from data supplied.
+    Other settings for this chart are here:
+    https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html
+    '''
+    plt.axis("equal")
+    plt.pie(values,
+            radius=size,
+            pctdistance=pctdistance,
+            labeldistance=labeldistance,
+            counterclock=False,
+            autopct=f'%0.{dp}f%%')
+    plt.legend(legend, loc='best', ncols=3)
+    plt.show()
+    
 def make_bar(x_labels, y_values, title=""):
     '''
     (list of str, list of num) -> None

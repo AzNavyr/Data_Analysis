@@ -26,17 +26,18 @@ def login_procedure():
                                              fields=["Login", "Password"])
             USERNAME = fieldValues[0]
             PASSWORD = fieldValues[1]
-        except: 
-            login_procedure()
-            exit(0)
-            
-        if USERNAME.lower() == "login" and PASSWORD.lower() == "password":
-            eg.msgbox("Вход выполнен!",
-                      image='images/yes.jpg')
-            break
-        else:
-            eg.msgbox("Неверный логин или пароль",
+            if USERNAME.lower() == "login" and PASSWORD.lower() == "password":
+                eg.msgbox("Entry success!!!",
+                          image='images/yes.jpg')
+                break
+            else:
+                eg.msgbox("Invalid login or password",
+                          image='images/no.jpg')
+        except:
+            eg.msgbox("Invalid login or password",
                       image='images/no.jpg')
+            exit(0)
+    
 
 def main():
     '''
@@ -45,13 +46,10 @@ def main():
     '''
     menu = ["US Crude",
             "DS Salaries",
-            "Ecommerce",
-            "Obesity",
             "Online Foods",
             "Students",
             "US Incomes",
             "Quit"]
-    #login_procedure()
     while True:
         pick= eg.indexbox(msg="Select dataset to analyse",
                           title="Data Analytics",
@@ -61,21 +59,18 @@ def main():
         elif pick == 1:
             ds_salaries.main()
         elif pick == 2:
-            ecommerce.main()
+            onlinefoods.main()
         elif pick == 3:
-            obesity.main()
-        elif pick == 4:
-            foods.main()
-        elif pick == 5:
             students.main()
-        elif pick == 6:
+        elif pick == 4:
             incomes.main()
-        elif pick == 7:
-            eg.msgbox(msg="Leaving Data Analytics...",
-                      title="Goodbye...",
-                      image='images/mainBYE.jpg')
+        elif pick == 5:
+            eg.msgbox(msg="Goodbye...",
+                      title="Leaving Data Analytics...",
+                      image="images/goodbye_main.jpg")
             break
+        
+login_procedure()
 
-# -- main body
 if __name__ == "__main__":
     main()
