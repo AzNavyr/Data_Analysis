@@ -36,13 +36,13 @@ def file_to_list(fname):
                 try:
                     e = float(elem)
                     newline.append(e)
-                except TypeError:
+                except ValueError:
                     newline.append(elem)
             list_arr_nums.append(newline)
         return list_arr_nums
     else:
         raise TypeError("Unexpected file extension received")
-    
+
 def get_country(state):
     """
     (None) -> None
@@ -62,11 +62,14 @@ def get_currencies(curr):
     return currency_name
 
 def country_to_continent(country_name):
+    """
+    (None) -> None
+    Func converting country_name(Alpha_2) to continent name where country located
+    """
     country_alpha2 = pc.country_name_to_country_alpha2(country_name)
     country_continent_code = pc.country_alpha2_to_continent_code(country_alpha2)
     country_continent_name = pc.convert_continent_code_to_continent_name(country_continent_code)
     return country_continent_name
-    
-    
+
 if __name__ == "__main__":
     print("You just ran the helpers file!")

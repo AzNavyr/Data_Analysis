@@ -4,13 +4,14 @@
  @project:  teamwork
  @description:  main app
 '''
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 import easygui as eg
+from pylint.lint import Run
 import ds_salaries
-#import incomes
+import income
+import crude_oil
+import students
+import onlinefoods
+
 
 def login_procedure():
     """
@@ -20,13 +21,13 @@ def login_procedure():
         password = password
     """
     while True:
-        try: 
-            fieldValues = eg.multpasswordbox(msg="Enter login and password",
+        try:
+            field_values = eg.multpasswordbox(msg="Enter login and password",
                                              title="Authorization",
                                              fields=["Login", "Password"])
-            USERNAME = fieldValues[0]
-            PASSWORD = fieldValues[1]
-            if USERNAME.lower() == "login" and PASSWORD.lower() == "password":
+            username = field_values[0]
+            password = field_values[1]
+            if username.lower() == "login" and password.lower() == "password":
                 eg.msgbox("Entry success!!!",
                           image='images/yes.jpg')
                 break
@@ -37,7 +38,6 @@ def login_procedure():
             eg.msgbox("Invalid login or password",
                       image='images/no.jpg')
             exit(0)
-    
 
 def main():
     '''
@@ -50,6 +50,7 @@ def main():
             "Students",
             "US Incomes",
             "Quit"]
+    login_procedure()
     while True:
         pick= eg.indexbox(msg="Select dataset to analyse",
                           title="Data Analytics",
@@ -63,14 +64,22 @@ def main():
         elif pick == 3:
             students.main()
         elif pick == 4:
-            incomes.main()
+            income.main()
         elif pick == 5:
             eg.msgbox(msg="Goodbye...",
                       title="Leaving Data Analytics...",
                       image="images/goodbye_main.jpg")
             break
-        
-login_procedure()
+
+def lint_me():
+    '''
+    (None) -> None
+    This function checks code for errors, using pylint module.
+    '''
+    print("Checking for lint errors...")
+    Run(['helpers.py'])
 
 if __name__ == "__main__":
+    #lint_me()
     main()
+    

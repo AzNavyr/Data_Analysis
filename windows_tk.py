@@ -15,6 +15,12 @@ def make_button(win, text, command, bd=5, bg='#a7dee8', action='green'):
                       font=('Arial', 9, 'bold'),
                       bd=bd,
                       bg=bg)
+def close_win():
+    """
+    (None) -> None
+    Func just close the window
+    """
+    exit(0)
 
 def main_window(CHOICE, width=897, height=457, title="", lable_text=""):
     """
@@ -48,7 +54,7 @@ def main_window(CHOICE, width=897, height=457, title="", lable_text=""):
                                                                             padx=25,
                                                                             pady=5)
     
-    btn_2 = make_button(win, CHOICE[1], command=ds.top_it_jobs_by_continent).grid(row=8,
+    btn_2 = make_button(win, CHOICE[1], command=ds.top_jobs_by_continent).grid(row=8,
                                                                                   column=2,
                                                                                   stick="wnes",
                                                                                   padx=25,
@@ -60,7 +66,7 @@ def main_window(CHOICE, width=897, height=457, title="", lable_text=""):
                                                                   padx=25,
                                                                   pady=5)
     
-    btn_4 = make_button(win, CHOICE[3], command=exit, action='red').grid(row=8,
+    btn_4 = make_button(win, CHOICE[3], command=close_win, action='red').grid(row=8,
                                                                            column=4,
                                                                            stick="wnes",
                                                                            padx=25,
