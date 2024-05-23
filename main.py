@@ -1,5 +1,5 @@
 '''
- @authors: Nataliia Tytovets  
+ @authors: Enver Osmanov & Nataliia Tytovets
  @date:     09-May-2024
  @project:  teamwork
  @description:  main app
@@ -7,13 +7,15 @@
 import easygui as eg
 from pylint.lint import Run
 import ds_salaries
-import income
+import incomes
 import crude_oil
-import students
+import student_behavior_menu_functions
 import onlinefoods
+import webbrowser
 
+URL = "https://app.diagrams.net/#G1_lWHB0DNhZ9E4qiBRdEYsZPMpm5hZf5G#%7B%22pageId%22%3A%22ZMWebayZMQBc8PB5ZtUZ%22%7D"
 
-def login_procedure():
+def main():
     """
     (None) -> None
     A kind of authorization in the application.
@@ -30,6 +32,7 @@ def login_procedure():
             if username.lower() == "login" and password.lower() == "password":
                 eg.msgbox("Entry success!!!",
                           image='images/yes.jpg')
+                main_menu()
                 break
             else:
                 eg.msgbox("Invalid login or password",
@@ -39,7 +42,7 @@ def login_procedure():
                       image='images/no.jpg')
             exit(0)
 
-def main():
+def main_menu():
     '''
     (None) -> None
     Create main menu for datasets using easygui
@@ -49,8 +52,8 @@ def main():
             "Online Foods",
             "Students",
             "US Incomes",
+            "Open flowChart",
             "Quit"]
-    login_procedure()
     while True:
         pick= eg.indexbox(msg="Select dataset to analyse",
                           title="Data Analytics",
@@ -62,10 +65,12 @@ def main():
         elif pick == 2:
             onlinefoods.main()
         elif pick == 3:
-            students.main()
+            student_behavior_menu_functions.main()
         elif pick == 4:
-            income.main()
+            incomes.main()
         elif pick == 5:
+            webbrowser.open_new(URL)
+        elif pick == 6:
             eg.msgbox(msg="Goodbye...",
                       title="Leaving Data Analytics...",
                       image="images/goodbye_main.jpg")

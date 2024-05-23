@@ -84,18 +84,17 @@ def make_bar(x_labels, y_values, title=""):
     plt.title(title)
     plt.show()
 
-
-def make_pi(labels, values, size=1, dp=1):
+def make_pi(labels, values, title="", size=1, dp=1):
     '''
-    (list of str, list of num, int, int) -> None
+    (list of str, list of num, str, int, int) -> None
     Creates a pi chart from data supplied.
     Other settings for this chart are here:
     https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html
     '''
+    plt.title(title)
     plt.axis("equal")
     plt.pie(values, labels=labels, radius=size, autopct=f'%0.{dp}f%%')
     plt.show()
-
 
 def make_plot(x_vals, y_vals, x_axis='x axis', y_axis='y axis', line='o'):
     '''

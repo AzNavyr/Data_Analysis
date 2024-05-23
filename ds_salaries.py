@@ -125,7 +125,7 @@ def top_jobs_by_continent():
     y_values = list(df_new['salary_in_usd'])
     cm.make_bar_horizontal(x_values, y_values,
                            title="Top 3 salaries from the continent and experience",
-                           x_label="Average salary in USD")
+                           x_label=f"Average salary in USD {choice}")
 
 def top_5_by_national_composition():
     """
@@ -199,8 +199,7 @@ def main():
     """
     while True:
         #tkinter main menu
-        wtk.main_window(CHOICE, title="Select box",lable_text="Data scientice salary")
-        """
+        #wtk.main_window(CHOICE, title="Select box",lable_text="Data scientice salary")
         pick = eg.indexbox(msg="Data scientice salary",
                            title="Select box",
                            choices=CHOICE,
@@ -215,7 +214,7 @@ def main():
             eg.msgbox(msg="Leaving Data Analytics...",
                       title="Goodbye",
                       image="images/goodbye.jpg")
-            break"""
+            break
 
 if __name__ == "__main__":
     main()
